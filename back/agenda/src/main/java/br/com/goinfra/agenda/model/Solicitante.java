@@ -15,10 +15,16 @@ public class Solicitante implements Serializable {
     private static final long serialVersionUID = 1;
 
     @Id
-    private Integer cpf;
+    private String cpf;
     private String nome;
     private String departamento;
 
     private Solicitante(){
+    }
+
+    public Solicitante(String cpf, String nome, String departamento) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.departamento = departamento;
     }
 }
