@@ -3,12 +3,13 @@
 <html>
   <head>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/site.js"></script>
     <title>Atendimento ao Usuário</title>
 
     
   </head>
   <body>
-    <div class="container">
+    <main class="container">
         <table> 
           <tr>
             <td>
@@ -23,16 +24,16 @@
         <br/>
         <br/>
 
-          <form action="/pagina-processa-dados-do-form" method="post">
+          <form action="/" id="form"method="post">
           <fieldset>
           <legend> Informações de solicitação </legend>
           <table class="formulario">
 
             <tr>
-              <td class="titulo"><label for="cpf">CPF:</label></td>  
+              <td class="titulo-cpf"><label for="cpf">CPF:</label></td>  
               <td class="input">
-                <input class="cpf" type="number" id="cpf" name="cpf" >
-                <button type="submit">Pesquisar</button>
+                <input class="cpf" type="text" id="cpf" name="cpf" >
+                <button onclick="buscaUsuario()">Pesquisar</button>
               </td>
             </tr>
 
@@ -92,13 +93,13 @@
               </td>
             </tr>
 
-            <tr>
+             <tr>
               <td><label for="cpf">Descrição:</label>
               </td>  
               <td>
                 <textarea id="msg"></textarea>
               </td>
-            </tr>
+            </tr> 
 
             <tr>
               <td><label for="Equipamentos">Equipamentos:</label>
@@ -112,33 +113,11 @@
                 </div>
               </td>
             </tr>
-
-
-            <tr class="equipamentos">
-              <td></td>
-              <td>
-                <button onclick="return addToTable()" type="submit">Incluir</button>
-                <button type="submit">Limpar</button>
-                <button type="submit">Visualizar Reservas</button>
-                <button type="submit">Voltar</button>
-              </td>
-            </tr>
           </table>
 
           </fieldset>
           </form>
-
-          <table id="myTable">
-            <tr id="0">
-                <th></th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Telefone</th>
-                <th>Profissão</th>
-                <th>Ação</th>
-            </tr>
-        </table>
-    </div>
+      </main>
   </body>
 </html>
 
