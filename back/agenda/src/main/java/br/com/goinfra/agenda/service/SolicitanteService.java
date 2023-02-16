@@ -13,8 +13,8 @@ public class SolicitanteService {
     @Autowired
     private SolicitanteRepository repo;
 
-    public Solicitante buscar(String id){
-        Optional<Solicitante> obj = repo.findById(id);
+    public Solicitante buscar(String cpf){
+        Optional<Solicitante> obj = repo.findById(cpf);
         return obj.orElse(null);
     }
 }

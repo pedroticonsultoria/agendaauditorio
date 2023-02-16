@@ -22,7 +22,7 @@ public class Agenda implements Serializable {
     private static final long serialVersionUID = 1;
     @Id
     @GeneratedValue
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "solicitante_cpf")
@@ -30,13 +30,22 @@ public class Agenda implements Serializable {
 
     private Integer ramal;
     private String local;
-    private Date dataInicial;
-    private Date dataFinal;
+    private String dataInicial;
+    private String dataFinal;
     private String horaInicial;
     private String horaFinal;
 
     private Agenda(){
     }
 
-
+    public Agenda(Integer id, Solicitante solicitante, Integer ramal, String local, String dataInicial, String dataFinal, String horaInicial, String horaFinal) {
+        this.id = id;
+        this.solicitante = solicitante;
+        this.ramal = ramal;
+        this.local = local;
+        this.dataInicial = dataInicial;
+        this.dataFinal = dataFinal;
+        this.horaInicial = horaInicial;
+        this.horaFinal = horaFinal;
+    }
 }
