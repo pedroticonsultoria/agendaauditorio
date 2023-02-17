@@ -3,7 +3,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/site.js"></script>
+    <script src="js/agendar.js"></script>
     <title>Atendimento ao Usuário</title>
 
     
@@ -24,46 +24,49 @@
         <br/>
         <br/>
 
-          <form action="/" id="form"method="post">
+          <form  id="form"method="post">
           <fieldset>
           <legend> Informações de solicitação </legend>
           <table class="formulario">
 
             <tr>
-              <td class="titulo-cpf"><label for="cpf">CPF:</label></td>  
+              <td class="titulo-cpf"><label for="cpf">*CPF:</label></td>  
               <td class="input">
-                <input class="cpf" type="text" id="cpf" name="cpf" >
-                <button onclick="buscaUsuario()">Pesquisar</button>
+                <input required class="cpf" type="text" id="cpf" name="cpf" value="10987654321">
+                <button type="submit" onclick="buscarSolicitante()">Pesquisar</button>
               </td>
-            </tr>
-
+          </tr>
+            
             <tr>
-              <td><label for="solicitante">Solicitante:</label></td>  
+              <td><label for="nome">*Solicitante:</label></td>  
               <td>
-                <input type="text" id="solicitante" name="solicitante" disabled="disabled">
+                <input required type="text" id="nome" name="nome" disabled="disabled">
               </td>
             </tr>
 
             <tr>
-              <td><label for="departamento">Departamento:</label>
+              <td><label for="departamento">*Departamento:</label>
               </td>  
               <td>
-              <input type="text" id="departamento" name="departamento" disabled="disabled">
+              <input required type="text" id="departamento" name="departamento" disabled="disabled">
               </td>
             </tr>
 
+            </form>
+
+
             <tr>
-              <td><label for="ramal">Ramal:</label>
+              <td><label for="ramal">*Ramal:</label>
               </td>  
               <td>
-              <input class="ramal" type="number" id="cpf" name="ramal">
+              <input  value="206" class="ramal" type="number" id="ramal" name="ramal">
               </td>
             </tr>
 
             <tr>
-              <td><label for="local">Local:</label></td>
+              <td><label for="local" id="local">*Local:</label></td>
               <td>
-                <select name="select">
+                <select name="select" required>
                   <option value="Sala de Treinamentos">Sala de Treinamentos</option>
                   <option value="Auditório" selected>Auditório</option>
                   <option value="Sala de exposição">Sala de exposição</option>
@@ -72,29 +75,29 @@
             </tr>
 
             <tr>
-              <td><label for="data">Data:</label>
+              <td><label for="data">*Data:</label>
               </td>  
               <td>
-              <input class="data" type="date" id="datainicial" name="datainicial">
+              <input required class="data" type="date" id="dataInicial" name="dataInicial" value="">
               até
-              <input class="data" type="date" id="datafinal" name="datafinal">
+              <input required class="data" type="date" id="dataFinal" name="dataFinal">
               </td>
             </tr>
 
             
 
             <tr>
-              <td><label for="hoa">Período:</label>
+              <td><label for="hoa">*Período:</label>
               </td>  
               <td>
-              <input class="time"  type="time" id="horainicial" name="horainicial" min="09:00" max="18:00" required>
+              <input  class="time"  type="time" id="horaInicial" name="horaInicial" min="09:00" max="18:00" >
               até
-              <input class="time" type="time" id="horafinal" name="horafinal" min="09:00" max="18:00" required>
+              <input  class="time" type="time" id="horaFinal" name="horaFinal" min="09:00" max="18:00" >
               </td>
             </tr>
 
              <tr>
-              <td><label for="cpf">Descrição:</label>
+              <td><label for="descricao" id="descricao">Descrição:</label>
               </td>  
               <td>
                 <textarea id="msg"></textarea>
@@ -102,20 +105,32 @@
             </tr> 
 
             <tr>
-              <td><label for="Equipamentos">Equipamentos:</label>
+              <td><label for="Equipamentos">*Equipamentos:</label>
               </td>  
               <td>
                 <div>
-                  <input class="equipamentos" type="checkbox" id="equipamentos" name="equipamentos" value="false">Nenhum
+                  <input class="nenhum" type="checkbox" id="nenhum" name="nenhum" value="false">Nenhum
                 </div>
                 <div>
-                  <input class="equipamentos" type="checkbox" id="equipamentos" name="equipamentos" value="true">Projetor Dell
+                  <input class="projetor" type="checkbox" id="projetor" name="projetor" value="true">Projetor Dell
                 </div>
               </td>
             </tr>
+
           </table>
 
+          <table>
+          <tr>
+            <td style="width:110"></td>
+          <th><button style="width:70;height:20" onclick="addToTable()" type="submit">Incluir</button></th>
+          <th><button  style="width:70;height:20" onclick="limparCampos()" type="submit">Limpar</button></th>
+          <th><form action="listar.html"> <button style="width:70;height:20;border-bottom: 10;" type="submit">Reservas</button></form></th>
+          <th><form action="index.html"> <button style="width:70;height:20" type="submit">Voltar</button> </form></th>
+          </tr>
+        </table>
+
           </fieldset>
+          <p><b>Observação:</b> Os campos com (*), são de preenchimento obrigatório</p>
           </form>
       </main>
   </body>
