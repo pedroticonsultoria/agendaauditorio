@@ -17,4 +17,17 @@ public class AgendaService {
         Optional<Agenda> obj = repo.findById(id);
         return obj.orElse(null);
     }
+
+    public void  update(Agenda obj){
+        Agenda agenda =  buscar(obj.getId());
+        agenda.setSolicitante(obj.getSolicitante());
+        agenda.setDataFinal(obj.getDataFinal());
+        agenda.setDataInicial(obj.getDataInicial());
+        agenda.setDescricao(obj.getDescricao());
+        agenda.setEquipamento(obj.getEquipamento());
+        agenda.setHoraInicial(obj.getHoraInicial());
+        agenda.setHoraFinal(obj.getHoraFinal());
+        agenda.setRamal(obj.getRamal());
+        agenda.setLocal(obj.getLocal());
+    }
 }

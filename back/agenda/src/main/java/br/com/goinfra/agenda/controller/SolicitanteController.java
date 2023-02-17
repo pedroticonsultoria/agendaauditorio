@@ -39,7 +39,7 @@ public class SolicitanteController {
     @CrossOrigin(origins = "*")
     @RequestMapping(value="/solicitante/{cpf}", method= RequestMethod.GET)
     public ResponseEntity<?> find(@PathVariable String cpf){
-        Solicitante obj = service.buscar(cpf);
+        Solicitante obj = service.findCPF(cpf);
         return ResponseEntity.ok().body(obj);
     }
 

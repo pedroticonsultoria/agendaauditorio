@@ -34,15 +34,16 @@ public class AgendaApplication  implements CommandLineRunner {
 
 	@Override
 	public void run (String... args) throws Exception{
-		Solicitante sol1 = new Solicitante("12345678910","Pedro Henrique","Tecnologia da Informação");
-		Solicitante sol2 = new Solicitante("10987654321","João da Silva","Vendas");
-		solicitanteRepository.saveAll(Arrays.asList(sol1,sol2));
+		Solicitante sol1 = new Solicitante(null,"12345678910","Pedro Henrique","Tecnologia da Informação");
+		Solicitante sol2 = new Solicitante(null,"10987654321","João da Silva","Vendas");
+		Solicitante sol3 = new Solicitante(null, "22222222222", "Marcelo da Silveira", "Recursos Humanos");
+		solicitanteRepository.saveAll(Arrays.asList(sol1,sol2,sol3));
 
 
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
-		Agenda ag1 = new Agenda(null, sol1, 208,  "Auditório", "16/02/2023","16/02/2023", "14:00", "14:30");
-		Agenda ag2 = new Agenda(null, sol2, 209,  "Sala de Treinamentos", "16/02/2023","16/02/2023", "14:00", "14:30");
+		Agenda ag1 = new Agenda(null, sol1, 208,  "Auditório", "16/02/2023","16/02/2023", "14:00", "14:30","Deixar datashow ligado", "true");
+		Agenda ag2 = new Agenda(null, sol2, 209,  "Sala de Treinamentos", "16/02/2023","16/02/2023", "14:00", "14:30","Equipamento de som","false");
 
 		agendaRepository.saveAll(Arrays.asList(ag1,ag2));
 	}

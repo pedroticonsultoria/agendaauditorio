@@ -62,21 +62,30 @@ public class AgendaController {
     @RequestMapping(value="/agenda", method= RequestMethod.POST)
     ResponseEntity<Agenda> createSolicitante(@RequestBody Agenda agenda) throws URISyntaxException {
 
-        Solicitante solicitante = solicitanteService.buscar(agenda.getSolicitante().getCpf());
+        Solicitante solicitante = solicitanteService.findCPF(agenda.getSolicitante().getCpf());
 
-        if(solicitante == null){
-            Solicitante sol = new Solicitante(agenda.getSolicitante().getCpf(),
-                    agenda.getSolicitante().getNome(),
-                    agenda.getSolicitante().getNome());
-
-            solicitanteRepository.save(sol);
-        }
+        agenda.setSolicitante(solicitante);
 
         log.info("Request to create agenda: {}", agenda);
         Agenda result = repository.save(agenda);
-        return ResponseEntity.created(new URI("/api/group/" + result.getId()))
+        return ResponseEntity.created(new URI("/agenda/" + result.getId()))
                 .body(result);
     }
 
+
+
+    @RequestMapping(value ="agenda/{id}",method = RequestMethod.PUT)
+    public ResponseEntity<Agenda> update(@RequestBody Agenda agenda,@PathVariable Integer id ) throws URISyntaxException {
+        service.update(agenda);
+        Agenda novaAgenda = service.buscar(id);
+        return ResponseEntity.created(new URI("/agenda/" + novaAgenda.getId()))
+                .body(novaAgenda);
+    }
+
+    @RequestMapping(value="agenda/{id}", method= RequestMethod.DELETE)
+    public String delete(@PathVariable Integer id){
+        repository.deleteById(id);
+        return "Agenda "+ id +" excluída com sucesso!";
+    }
 
 }
