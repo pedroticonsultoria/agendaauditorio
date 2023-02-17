@@ -1,19 +1,42 @@
+</html>
 <!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="css/styles.css">
-    <title>Login Page</title>
+    <script src="js/listar.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>    
   </head>
-  <body>
-    <div class="login-container">
-      <form>
-        <h1>Sistema de Atendimento ao usuário</h1>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password">
-        <button type="submit">Submit</button>
-      </form>
+  <body onload="carregarLista()">
+    <div class="container">
+        <div >
+          <tr>
+            <td>
+            <a href="index.html"> 
+              <img class="icone"  src="icones/helpdesk.png"> 
+            </a>
+            </td>
+            <td><h1>Sistema de Atendimento ao usuário</h1></td>
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nome Solicitante</th>
+                <th>Ramal</th>
+                <th>Local</th>
+                <th>Data Inicial</th>
+                <th>Hora Inicial</th>
+                <th>Data Final</th>
+                <th>Hora Final</th>
+                <th>Descrição</th>
+                <th>Precisa Projetor S/N</th>
+                <th>Editar</th>
+                <th>Apagar</th>
+              </tr>
+            </thead>
+            <tbody >
+            </tbody>
+          </table>
+        </div>
     </div>
   </body>
 </html>

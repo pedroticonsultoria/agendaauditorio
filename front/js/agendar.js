@@ -84,7 +84,9 @@ function addToTable(){
         })
         .then(response => response.json()) 
         .then(json => console.log(json))
-        .catch(err => console.log(err));
+        .catch(err => console.log(err))
+        alert("Cadastrado com Sucesso");
+
     
 }
 

@@ -25,6 +25,35 @@ label {
   font-weight: bold;
 }
 
+input {
+  border: 1px solid #ccc;
+  width: 400px;
+}
+
+input.cpf{
+  width: 150px;
+}
+
+input.data{
+  width: 150px;
+}
+
+input.time{
+  width: 90px;
+}
+
+input.ramal{
+  width: 90px;
+}
+
+input.projetor{
+  width: 20px;
+}
+
+input.nenhum{
+  width: 20px;
+}
+
 
 
 textarea{
@@ -33,7 +62,7 @@ textarea{
 
 h1{
   text-align: center;
-  margin-left: 95px;
+  margin-left: 125px;
   margin-top: 35px;
 }
 
@@ -47,10 +76,22 @@ img.link{
   margin-top: 99px;
 }
 
-th {
-  display: table-cell;
-  vertical-align: inherit;
-  font-weight: bold;
-  text-align: -internal-center;
+/* table.formulario {
+  border: 3px solid #000;
+} */
+
+tr{
+  margin-bottom: 30px;
 }
+
+label.titulo-cpf{
+  width: 5px;
+}
+
+.ajuda{  
+  display: block;
+  margin-left: 110px;
+}
+
+
 
