@@ -20,7 +20,9 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -51,10 +53,12 @@ public class AgendaController {
 
 
     @CrossOrigin(origins = "*")
-    @RequestMapping(value="/agenda", method= RequestMethod.GET)
-    public ResponseEntity<List<Agenda>> findAll(){
+    @RequestMapping(value="/agenda", method= RequestMethod.GET, produces = "application/json")
+    public Map<String, List<Agenda>> findAll() {
+        HashMap<String, List<Agenda>> map = new HashMap<String, List<Agenda>>();
         List<Agenda> list = repository.findAll();
-        return ResponseEntity.ok().body(list);
+        map.put("agendas", list);
+        return map;
     }
 
 
@@ -82,6 +86,7 @@ public class AgendaController {
                 .body(novaAgenda);
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
     @RequestMapping(value="agenda/{id}", method= RequestMethod.DELETE)
     public String delete(@PathVariable Integer id){
         repository.deleteById(id);
