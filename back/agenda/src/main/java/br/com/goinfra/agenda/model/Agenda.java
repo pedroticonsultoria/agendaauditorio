@@ -53,6 +53,7 @@ public class Agenda implements Serializable {
         this.dataFinal = dataFinal;
         this.horaInicial = horaInicial;
         this.horaFinal = horaFinal;
+        this.descricao = descricao;
         this.equipamento = equipamento;
     }
 
