@@ -33,7 +33,7 @@ function carregarLista(){
 
 function deletar(idAgenda){
   deletaContato(idAgenda);
-  alert("Usuário deletado!");  
+  alert("Agendamento deletado!");  
   window.location.reload();
 }
 
