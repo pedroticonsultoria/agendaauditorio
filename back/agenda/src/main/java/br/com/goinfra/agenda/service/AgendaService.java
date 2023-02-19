@@ -29,5 +29,7 @@ public class AgendaService {
         agenda.setHoraFinal(obj.getHoraFinal());
         agenda.setRamal(obj.getRamal());
         agenda.setLocal(obj.getLocal());
+
+        repo.save(agenda);
     }
 }
