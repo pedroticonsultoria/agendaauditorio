@@ -33,8 +33,8 @@ function atribuirCampos(data)
     nome.value = data.solicitante.nome;
     departamento.value = data.solicitante.departamento;
 	local.value = data.local;
-    dataInicial.value = formataData(data.dataInicial);
-    dataFinal.value = formataData(data.dataFinal) ;
+    dataInicial.value = dataAnoMesDia(data.dataInicial);
+    dataFinal.value = dataAnoMesDia(data.dataFinal) ;
     horaInicial.value = data.horaInicial;
     horaFinal.value = data.horaFinal;
     descricao.value = data.descricao;
@@ -74,12 +74,12 @@ function salvarAlteracoes(){
             },
             "ramal": ramal.value,
             "local": local.value,
-            "dataInicial": dataInicial.value,
-            "dataFinal": dataFinal.value,
+            "dataInicial": dataDiaMesAno(dataInicial.value),
+            "dataFinal":dataDiaMesAno(dataFinal.value),
             "horaInicial": horaInicial.value,
             "horaFinal": horaFinal.value,
             "descricao": descricao.value,
-            "equipamento": equipamento.value
+            "equipamento": projetor.checked
         }
 
         console.log(_data)
@@ -112,9 +112,17 @@ function limparCampos()
     }  
 
   
-function formataData(data){
+function dataAnoMesDia(data){
     let ano = data.substring(6);
     let mes = data.substring(3,5);
     let dia = data.substring(0,2);
     return ano +'-'+mes+'-'+dia;
+}
+
+
+function dataDiaMesAno(data){
+    let dia = data.substring(8);
+    let mes = data.substring(7,5);
+    let ano = data.substring(0,4);
+    return dia +'/'+mes+'/'+ano;
 }
