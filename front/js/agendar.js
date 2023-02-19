@@ -1,16 +1,12 @@
 //Busca o solicitante por CPF no endpont do back
 function buscarSolicitante(){
     const cpf = document.getElementById("cpf");
+    const dataInicial = document.getElementById("dataInicial");
+    console.log(formataData('2023-02-18'));
     
     const equipamento = document.getElementById("projetor");
 
-/*   fetch('http://localhost:8080/solicitante/' + cpf.value).then(response =>{
-    return response.json();
-        })
-    .then(data =>{
-          atribuirCampos(data);
-          console.log(data);
-    }) */
+
 
     fetch('http://localhost:8080/solicitante/' + cpf.value).then((response) => {
         if (response.ok) {
@@ -68,8 +64,8 @@ function addToTable(){
             },
             "ramal": ramal.value,
             "local": local.value,
-            "dataInicial": dataInicial.value,
-            "dataFinal": dataFinal.value,
+            "dataInicial": formataData(dataInicial.value),
+            "dataFinal": formataData(dataFinal.value),
             "horaInicial": horaInicial.value,
             "horaFinal": horaFinal.value,
             "descricao": descricao.value,
@@ -104,3 +100,10 @@ function limparCampos()
         document.getElementById("descricao").value='';
         document.getElementById("equipamento").value="false";
     }  
+
+    function formataData(data){
+        let dia = data.substring(8);
+        let mes = data.substring(7,5);
+        let ano = data.substring(0,4);
+        return dia +'/'+mes+'/'+ano;
+    }
