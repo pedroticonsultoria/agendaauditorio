@@ -38,7 +38,13 @@ function atribuirCampos(data)
     horaInicial.value = data.horaInicial;
     horaFinal.value = data.horaFinal;
     descricao.value = data.descricao;
-    projetor.checked = data.equipamento;
+    if(data.equipamento == 'true'){
+    projetor.checked = true;
+    }
+    if(data.equipamento == 'false'){
+    projetor.checked = false;
+    }
+    console.log(data.equipamento);
     console.log(data);
 }
 
