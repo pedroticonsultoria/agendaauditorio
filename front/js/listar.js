@@ -20,8 +20,8 @@ function carregarLista(){
         html +="<td>"+dados.agendas[i].dataFinal+"</td>";
         html +="<td>"+dados.agendas[i].horaFinal+"</td>";
         html +="<td>"+dados.agendas[i].descricao+"</td>";
-        html +="<td>"+dados.agendas[i].equipamento+"</td>";
-        html +="<td><button>Editar</button></td>";
+        html +="<td>"+dados.agendas[i].equipamento+"</td>";        
+        html +="<td><button onclick=redirecionar("+dados.agendas[i].id+")>Editar</button></td>";
         html +="<td><button onclick=deletar("+dados.agendas[i].id+")>Apagar</button></td>";
         html +="</tr>";
         $('table tbody').append(html);
@@ -55,3 +55,7 @@ async function deletaContato(idAgenda) {
   
   carregarLista();
   }
+
+function redirecionar(idAgenda){
+  window.location.href = "editar.html?agenda=" + idAgenda;
+}

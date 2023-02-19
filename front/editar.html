@@ -1,19 +1,19 @@
 <!DOCTYPE html>
- <html lang="pt-BR">
+<html lang="pt-BR">
   <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/styles.css">
-        <script src="js/agendar.js"></script>
-        <title>Atendimento ao Usuário</title>
-      </head>    
-
-    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/editar.js"></script>
+    <title>Atendimento ao Usuário</title>
   </head>
-  <body>
-    <main class="container">
-        <table> 
+
+  <body onload="buscarAgenda()">
+     <main class="container">
+      
+
+       <table>    
           <tr>
             <td>
             <a href="index.html"> 
@@ -26,23 +26,25 @@
         <h2>Reserva de Auditório e Sala de Treinamento / Equipamentos</h2>
         <br/>
         <br/>
+        
 
+
+          <div>         
           <fieldset>
           <legend> Informações de solicitação </legend>
           <table class="formulario">
 
             <tr>
               <td class="titulo-cpf"><label for="cpf">*CPF:</label></td>  
-              <td class="input">
-                <input required class="cpf" type="text" id="cpf" name="cpf" value="10987654321">
-                <button type="submit" onclick="buscarSolicitante()">Pesquisar</button>
+              <td >
+                <input  class="cpf" type="text" id="cpf" name="cpf" >
               </td>
           </tr>
             
             <tr>
               <td><label for="nome">*Solicitante:</label></td>  
               <td>
-                <input required type="text" id="nome" name="nome" disabled="disabled">
+                <input  type="text" id="nome" name="nome">
               </td>
             </tr>
 
@@ -50,9 +52,11 @@
               <td><label for="departamento">*Departamento:</label>
               </td>  
               <td>
-              <input required type="text" id="departamento" name="departamento" disabled="disabled">
+              <input  type="text" id="departamento" name="departamento">
               </td>
             </tr>
+
+            </form>
 
 
             <tr>
@@ -64,11 +68,11 @@
             </tr>
 
             <tr>
-              <td><label >*Local:</label></td>
+              <td><label for="local" >*Local:</label></td>
               <td>
-                <select name="local" id="local">
+                <select name="select" id="local">
                   <option value="Sala de Treinamentos">Sala de Treinamentos</option>
-                  <option value="Auditório">Auditório</option>
+                  <option value="Auditório" selected>Auditório</option>
                   <option value="Sala de exposição">Sala de exposição</option>
                 </select>
               </td>
@@ -78,9 +82,9 @@
               <td><label for="data">*Data:</label>
               </td>  
               <td>
-              <input required class="data" type="date" id="dataInicial" name="dataInicial" value="">
+              <input  class="data" type="date" id="dataInicial" name="dataInicial">
               até
-              <input required class="data" type="date" id="dataFinal" name="dataFinal">
+              <input  class="data" type="date" id="dataFinal" name="dataFinal">
               </td>
             </tr>
 
@@ -109,29 +113,35 @@
               </td>  
               <td>
                 <div>
-                  <input class="nenhum" type="checkbox" id="nenhum" name="nenhum" value="false">Nenhum
+                  <input class="nenhum" type="checkbox" id="nenhum" name="nenhum">Nenhum
                 </div>
                 <div>
-                  <input class="projetor" type="checkbox" id="projetor" name="projetor" value="true">Projetor Dell
+                  <input class="projetor" type="checkbox" id="projetor" name="projetor">Projetor Dell
                 </div>
               </td>
             </tr>
 
-          </table>
-
-          <table>
-          <tr>
+            
+<!--           <tr>
             <td style="width:110"></td>
-          <th><button style="width:70;height:20" onclick="addToTable()" type="submit">Incluir</button></th>
-          <th><button  style="width:70;height:20" onclick="limparCampos()" type="submit">Limpar</button></th>
-          <th><form action="listar.html"> <button style="width:70;height:20;border-bottom: 10;" type="submit">Reservas</button></form></th>
-          <th><form action="index.html"> <button style="width:70;height:20" type="submit">Voltar</button> </form></th>
-          </tr>
+          <td style="width:30px">
+          </td>
+          <th><form action="index.html"  style="width:30px" > <button style="width:70;height:20" type="submit">Voltar</button> </form></th>
+          <th><button style="width:70;height:20" onclick="salvarAlteracoes()" type="submit">Salvar</button></th>
+          </tr> -->
+          <table >
+            <tr>
+                <td style="width:110px"></td>
+                <td><button style="width:70;height:20" onclick="salvarAlteracoes()" type="submit"><b>Salvar</b></button></td>
+                <td style="width:500px"></td>
+                <td style="width:50px"><form action="listar.html"  style="width:30px" > <button style="width:70;height:20" type="submit">Voltar</button> </form></td>
+            </tr>
         </table>
 
           </fieldset>
           <p><b>Observação:</b> Os campos com (*), são de preenchimento obrigatório</p>
-      </main>
+        </div>
+      </main> 
   </body>
 </html>
 

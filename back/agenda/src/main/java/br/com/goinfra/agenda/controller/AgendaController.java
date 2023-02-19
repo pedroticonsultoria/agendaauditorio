@@ -77,10 +77,11 @@ public class AgendaController {
     }
 
 
-
+    @CrossOrigin(origins = "*")
     @RequestMapping(value ="agenda/{id}",method = RequestMethod.PUT)
     public ResponseEntity<Agenda> update(@RequestBody Agenda agenda,@PathVariable Integer id ) throws URISyntaxException {
         service.update(agenda);
+        
         Agenda novaAgenda = service.buscar(id);
         return ResponseEntity.created(new URI("/agenda/" + novaAgenda.getId()))
                 .body(novaAgenda);

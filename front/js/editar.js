@@ -1,18 +1,11 @@
+ src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js";
 //Busca o solicitante por CPF no endpont do back
-function buscarSolicitante(){
-    const cpf = document.getElementById("cpf");
-    
-    const equipamento = document.getElementById("projetor");
+function buscarAgenda(){
 
-/*   fetch('http://localhost:8080/solicitante/' + cpf.value).then(response =>{
-    return response.json();
-        })
-    .then(data =>{
-          atribuirCampos(data);
-          console.log(data);
-    }) */
+    var url_ = location.href;
+    var idAgenda = url_.substring(url_.lastIndexOf("=")+1,url_.length);
 
-    fetch('http://localhost:8080/solicitante/' + cpf.value).then((response) => {
+    fetch('http://localhost:8080/agenda/' + idAgenda).then((response) => {
         if (response.ok) {
           return response.json();
         }
@@ -23,34 +16,39 @@ function buscarSolicitante(){
       })
       .catch((error) => {
         console.log(error)
-        alert('Usuário não encontrado');
         document.getElementById('nome').value='';
         document.getElementById('departamento').value='';
-        
-        console.log(data);
       });
 } 
 
-
 //Preenche os campos nome e departamento
 function atribuirCampos(data)
-    {
+{
 
     if(data == null){
-        alert('Usuário não encontrado!');
+        alert('Agenda não encontrada!');
     }
-    const nome = document.querySelector("#nome");
-    const departamento = document.querySelector("#departamento");
-
-    nome.value = data.nome;
-    departamento.value = data.departamento;
-    }
+     
+    cpf.value = data.solicitante.cpf;
+    nome.value = data.solicitante.nome;
+    departamento.value = data.solicitante.departamento;
+	local.value = data.local;
+    dataInicial.value = formataData(data.dataInicial);
+    dataFinal.value = formataData(data.dataFinal) ;
+    horaInicial.value = data.horaInicial;
+    horaFinal.value = data.horaFinal;
+    descricao.value = data.descricao;
+    projetor.checked = data.equipamento;
+    console.log(data);
+}
 
 //Envio de post com os dados para o endpoint de agenda.
-function addToTable(){
+function salvarAlteracoes(){
 
     // dados a serem enviados pela solicitação POST
     const cpf = document.getElementById("cpf");
+    const nome = document.querySelector("#nome");
+    const departamento = document.querySelector("#departamento");
     const ramal = document.getElementById("ramal");
 	const local = document.getElementById("local");
     const dataInicial = document.getElementById("dataInicial");
@@ -60,11 +58,19 @@ function addToTable(){
     const descricao = document.getElementById("descricao");
     const equipamento = document.getElementById("projetor");
 
+    
+
+    var url_ = location.href;
+    var idAgenda = url_.substring(url_.lastIndexOf("=")+1,url_.length);
 
 
         let _data = {
+            "id": idAgenda,
             "solicitante": {
-                "cpf": cpf.value
+                "id": 1,
+                "cpf": cpf.value,
+                "nome": nome.value,
+                "departamento": departamento.value
             },
             "ramal": ramal.value,
             "local": local.value,
@@ -78,8 +84,8 @@ function addToTable(){
 
         console.log(_data)
         
-        fetch('http://localhost:8080/agenda', {
-            method: "POST",
+        fetch('http://localhost:8080/agenda/'+ idAgenda, {
+            method: "PUT",
             body: JSON.stringify(_data),
             headers: {"Content-type": "application/json;charset=UTF-8"}
             
@@ -87,7 +93,7 @@ function addToTable(){
         .then(response => response.json()) 
         .then(json => console.log(json))
         .catch(err => console.log(err))
-        alert("Cadastrado com Sucesso");
+        alert("Alterações Salvas com sucesso!");
 
     
 }
@@ -104,3 +110,11 @@ function limparCampos()
         document.getElementById("descricao").value='';
         document.getElementById("equipamento").value="false";
     }  
+
+  
+function formataData(data){
+    let ano = data.substring(6);
+    let mes = data.substring(3,5);
+    let dia = data.substring(0,2);
+    return ano +'-'+mes+'-'+dia;
+}

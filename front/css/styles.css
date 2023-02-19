@@ -1,5 +1,5 @@
 .container {
-  width: 1050px;
+  width: 750px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f7f7f7;
@@ -15,7 +15,6 @@
 }
 
 form {
-  display: flex;
   flex-direction: column;
 /*   white-space: 20px; */
 }
@@ -23,6 +22,35 @@ form {
 label {
   margin-bottom: 10px;
   font-weight: bold;
+}
+
+input {
+  border: 1px solid #ccc;
+  width: 400px;
+}
+
+input.cpf{
+  width: 150px;
+}
+
+input.data{
+  width: 150px;
+}
+
+input.time{
+  width: 90px;
+}
+
+input.ramal{
+  width: 90px;
+}
+
+input.projetor{
+  width: 20px;
+}
+
+input.nenhum{
+  width: 20px;
 }
 
 
@@ -47,10 +75,25 @@ img.link{
   margin-top: 99px;
 }
 
-th {
-  display: table-cell;
-  vertical-align: inherit;
-  font-weight: bold;
-  text-align: -internal-center;
+/* table.formulario {
+  border: 3px solid #000;
+} */
+
+tr{
+  margin-bottom: 30px;
 }
 
+label.titulo-cpf{
+  width: 5px;
+}
+
+.ajuda{  
+  display: block;
+  margin-left: 110px;
+}
+
+button{
+  width:70;
+  height:20;
+  border-bottom: 10;
+}
