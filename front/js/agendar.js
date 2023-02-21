@@ -84,9 +84,6 @@ function addToTable() {
         return alert('Selecionar somente uma opção do projetor!');
     }
 
-
-
-
     //Preenchendo Json    
     let _data = {
         "solicitante": {
@@ -115,18 +112,22 @@ function addToTable() {
         .catch(err => console.log(err))
     alert("Cadastrado com sucesso!");
 
+    limparCampos()
+
 }
 
 function limparCampos() {
     document.getElementById('cpf').value = '';
+    document.getElementById('nome').value = '';
+    document.getElementById('departamento').value = '';
     document.getElementById("ramal").value = '';
     document.getElementById("local").value = '';
-    document.getElementById("dataInicial").value = '';
-    document.getElementById("dataFinal").value = '';
+    precherData();
     document.getElementById("horaInicial").value = '';
     document.getElementById("horaFinal").value = '';
     document.getElementById("descricao").value = '';
-    document.getElementById("equipamento").value = "false";
+    projetor.checked = false;
+    nenhum.checked = false;
 }
 
 function dataDiaMesAno(data) {

@@ -21,6 +21,47 @@ function buscarAgenda() {
         });
 }
 
+//Busca o solicitante por CPF no endpont do back
+function buscarSolicitante() {
+    const cpf = document.getElementById("cpf");
+
+   if (cpf.value == "") {
+       alert('Informar o CPF!');
+   }
+   if (cpf.value != "") {
+       //Enviando solicitação ao backend
+       fetch('http://localhost:8080/solicitante/' + cpf.value).then((response) => {
+           if (response.ok) {
+               return response.json();
+           }
+           throw new Error('Something went wrong');
+       })
+           .then((data) => {
+               
+               console.log('Recebido os seguintes dados do back:');
+               console.log(data);
+               atribuirCamposSolicitante(data);
+           })
+           .catch((error) => {
+               console.log(error)
+               alert('Usuário não encontrado!');
+           });
+   } 
+}
+
+//Preenche os campos nome e departamento
+function atribuirCamposSolicitante(data) {
+
+    if (data == null) {
+        alert('Usuário não encontrado!');
+    }
+    const nome = document.querySelector("#nome");
+    const departamento = document.querySelector("#departamento");
+
+    nome.value = data.nome;
+    departamento.value = data.departamento;
+}
+
 //Preenche os campos nome e departamento
 function atribuirCampos(data) {
 

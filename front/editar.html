@@ -35,11 +35,12 @@
           <table class="formulario">
 
             <tr>
-              <td class="titulo-cpf"><label for="cpf">*CPF:</label></td>  
-              <td >
-                <input  class="cpf" type="text" id="cpf" name="cpf" >
+              <td class="titulo-cpf"><label for="cpf">*CPF:</label></td>
+              <td class="input">
+                <input required class="cpf" type="text" id="cpf" name="cpf" maxlength="11" minlength="11">
+                <button type="submit" onclick="buscarSolicitante()">Pesquisar</button>
               </td>
-          </tr>
+            </tr>
             
             <tr>
               <td><label for="nome">*Solicitante:</label></td>  
