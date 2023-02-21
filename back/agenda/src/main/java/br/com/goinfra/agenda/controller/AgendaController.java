@@ -71,6 +71,13 @@ public class AgendaController {
         agenda.setSolicitante(solicitante);
 
         log.info("Request to create agenda: {}", agenda);
+        if(agenda.getEquipamento() != null){
+            if (agenda.getEquipamento() == "true") {
+                agenda.setEquipamento("Sim");
+            } else {
+                agenda.setEquipamento("Não");
+            }
+        }
         Agenda result = repository.save(agenda);
         return ResponseEntity.created(new URI("/agenda/" + result.getId()))
                 .body(result);

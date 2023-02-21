@@ -1,137 +1,146 @@
 <!DOCTYPE html>
- <html lang="pt-BR">
-  <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/styles.css">
-        <script src="js/agendar.js"></script>
-        <title>Atendimento ao Usuário</title>
-      </head>    
+<html lang="pt-BR">
 
-    
-  </head>
-  <body>
-    <main class="container">
-        <table> 
-          <tr>
-            <td>
-            <a href="index.html"> 
-              <img class="icone"  src="icones/helpdesk.png"> 
-            </a>
-            </td>
-            <td><h1>Sistema de Atendimento ao usuário</h1></td>
-          </tr>          
-        </table>
-        <h2>Reserva de Auditório e Sala de Treinamento / Equipamentos</h2>
-        <br/>
-        <br/>
-
-          <fieldset>
-          <legend> Informações de solicitação </legend>
-          <table class="formulario">
-
-            <tr>
-              <td class="titulo-cpf"><label for="cpf">*CPF:</label></td>  
-              <td class="input">
-                <input required class="cpf" type="text" id="cpf" name="cpf" value="10987654321">
-                <button type="submit" onclick="buscarSolicitante()">Pesquisar</button>
-              </td>
-          </tr>
-            
-            <tr>
-              <td><label for="nome">*Solicitante:</label></td>  
-              <td>
-                <input required type="text" id="nome" name="nome" disabled="disabled">
-              </td>
-            </tr>
-
-            <tr>
-              <td><label for="departamento">*Departamento:</label>
-              </td>  
-              <td>
-              <input required type="text" id="departamento" name="departamento" disabled="disabled">
-              </td>
-            </tr>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/agendar.js"></script>
+  <title>Atendimento ao Usuário</title>
+</head>
 
 
-            <tr>
-              <td><label for="ramal">*Ramal:</label>
-              </td>  
-              <td>
-              <input  value="206" class="ramal" type="number" id="ramal" name="ramal">
-              </td>
-            </tr>
+</head>
 
-            <tr>
-              <td><label >*Local:</label></td>
-              <td>
-                <select name="local" id="local">
-                  <option value="Sala de Treinamentos">Sala de Treinamentos</option>
-                  <option value="Auditório">Auditório</option>
-                  <option value="Sala de exposição">Sala de exposição</option>
-                </select>
-              </td>
-            </tr>
+<body onload="precherData()">
+  <main class="container">
+    <table>
+      <tr>
+        <td>
+          <a href="index.html">
+            <img class="icone" src="icones/helpdesk.png">
+          </a>
+        </td>
+        <td>
+          <h1>Sistema de Atendimento ao usuário</h1>
+        </td>
+      </tr>
+    </table>
+    <h2>Reserva de Auditório e Sala de Treinamento / Equipamentos</h2>
 
-            <tr>
-              <td><label for="data">*Data:</label>
-              </td>  
-              <td>
-              <input required class="data" type="date" id="dataInicial" name="dataInicial" value="">
-              até
-              <input required class="data" type="date" id="dataFinal" name="dataFinal">
-              </td>
-            </tr>
+    <fieldset>
+      <legend> Informações de solicitação </legend>
+      <table class="formulario">
+      <form id="formGeral">  
 
-            
+        <tr>
+          <td class="titulo-cpf"><label for="cpf">*CPF:</label></td>
+          <td class="input">
+            <input required class="cpf" type="text" id="cpf" name="cpf" maxlength="11" minlength="11">
+            <button type="submit" onclick="buscarSolicitante()">Pesquisar</button>
+          </td>
+        </tr>
 
-            <tr>
-              <td><label for="hoa">*Período:</label>
-              </td>  
-              <td>
-              <input  class="time"  type="time" id="horaInicial" name="horaInicial" min="09:00" max="18:00" >
-              até
-              <input  class="time" type="time" id="horaFinal" name="horaFinal" min="09:00" max="18:00" >
-              </td>
-            </tr>
+        <tr>
+          <td><label for="nome">*Solicitante:</label></td>
+          <td>
+            <input required type="text" id="nome" name="nome" disabled="disabled">
+          </td>
+        </tr>
 
-             <tr>
-              <td><label for="descricao" >Descrição:</label>
-              </td>  
-              <td>
-                <textarea id="descricao" id="msg"></textarea>
-              </td>
-            </tr> 
+        <tr>
+          <td><label for="departamento">*Departamento:</label>
+          </td>
+          <td>
+            <input required type="text" id="departamento" name="departamento" disabled="disabled">
+          </td>
+        </tr>
 
-            <tr>
-              <td><label for="Equipamentos">*Equipamentos:</label>
-              </td>  
-              <td>
-                <div>
-                  <input class="nenhum" type="checkbox" id="nenhum" name="nenhum" value="false">Nenhum
-                </div>
-                <div>
-                  <input class="projetor" type="checkbox" id="projetor" name="projetor" value="true">Projetor Dell
-                </div>
-              </td>
-            </tr>
 
-          </table>
+        <tr>
+          <td><label  for="ramal">*Ramal:</label>
+          </td>
+          <td>
+            <input required  class="ramal" type="number" id="ramal" name="ramal">
+          </td>
+        </tr>
 
-          <table>
-          <tr>
-            <td style="width:110"></td>
+        <tr>
+          <td><label>*Local:</label></td>
+          <td>
+            <select required name="local" id="local">
+              <option value=""></option>
+              <option value="Sala de Treinamentos">Sala de Treinamentos</option>
+              <option value="Auditório">Auditório</option>
+              <option value="Sala de exposição">Sala de exposição</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="data">*Data:</label>
+          </td>
+          <td>
+            <input required class="data" type="date" id="dataInicial" name="dataInicial">
+            até
+            <input required class="data" type="date" id="dataFinal" name="dataFinal">
+          </td>
+        </tr>
+
+
+
+        <tr>
+          <td><label for="hoa">*Período:</label>
+          </td>
+          <td>
+            <input required class="time" type="time" id="horaInicial" name="horaInicial" min="09:00" max="18:00">
+            até
+            <input required class="time" type="time" id="horaFinal" name="horaFinal" min="09:00" max="18:00">
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="descricao">Descrição:</label>
+          </td>
+          <td>
+            <textarea id="descricao" id="msg"></textarea>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="Equipamentos">*Equipamentos:</label>
+          </td>
+          <td>
+            <div>
+              <input class="nenhum" type="checkbox" id="nenhum" name="nenhum" >Nenhum
+            </div>
+            <div>
+              <input required class="projetor" type="checkbox" id="projetor" name="projetor">Projetor Dell
+            </div>
+          </td>
+        </tr>
+      </form>  
+      </table>
+
+      <table>
+        <tr>
+          <td style="width:110"></td>
           <th><button style="width:70;height:20" onclick="addToTable()" type="submit">Incluir</button></th>
-          <th><button  style="width:70;height:20" onclick="limparCampos()" type="submit">Limpar</button></th>
-          <th><form action="listar.html"> <button style="width:70;height:20;border-bottom: 10;" type="submit">Reservas</button></form></th>
-          <th><form action="index.html"> <button style="width:70;height:20" type="submit">Voltar</button> </form></th>
-          </tr>
-        </table>
+          <th><button style="width:70;height:20" onclick="limparCampos()" type="submit">Limpar</button></th>
+          <th>
+            <form action="listar.html"> <button style="width:70;height:20;border-bottom: 10;"
+                type="submit">Reservas</button></form>
+          </th>
+          <th>
+            <form action="index.html"> <button style="width:70;height:20" type="submit">Voltar</button> </form>
+          </th>
+        </tr>
+      </table>
 
-          </fieldset>
-          <p><b>Observação:</b> Os campos com (*), são de preenchimento obrigatório</p>
-      </main>
-  </body>
+    </fieldset>
+    <p><b>Observação:</b> Os campos com (*), são de preenchimento obrigatório</p>
+  </main>
+</body>
+
 </html>
-

@@ -42,8 +42,8 @@ public class AgendaApplication  implements CommandLineRunner {
 
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
-		Agenda ag1 = new Agenda(null, sol1, 208,  "Auditório", "16/02/2023","16/02/2023", "14:00", "14:30","Deixar datashow ligado", "true");
-		Agenda ag2 = new Agenda(null, sol2, 209,  "Sala de Treinamentos", "16/02/2023","16/02/2023", "14:00", "14:30","Equipamento de som","false");
+		Agenda ag1 = new Agenda(null, sol1, 208,  "Auditório", "16/02/2023","16/02/2023", "14:00", "14:30","Deixar datashow ligado", "Sim");
+		Agenda ag2 = new Agenda(null, sol2, 209,  "Sala de Treinamentos", "16/02/2023","16/02/2023", "14:00", "14:30","Equipamento de som","Não");
 
 		agendaRepository.saveAll(Arrays.asList(ag1,ag2));
 	}

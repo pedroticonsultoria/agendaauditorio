@@ -1,42 +1,50 @@
 </html>
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/listar.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>    
-  </head>
-  <body onload="carregarLista()">
-    <div class="container" style="width: 1050px;">
-        <div >
-          <tr>
-            <td>
-            <a href="index.html"> 
-              <img class="icone"  src="icones/helpdesk.png"> 
-            </a>
-            </td>
-            <td><h1>Sistema de Atendimento ao usuário</h1></td>
-          <table border="1">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Nome Solicitante</th>
-                <th>Ramal</th>
-                <th>Local</th>
-                <th>Data Inicial</th>
-                <th>Hora Inicial</th>
-                <th>Data Final</th>
-                <th>Hora Final</th>
-                <th>Descrição</th>
-                <th>Precisa Projetor S/N</th>
-                <th>Editar</th>
-                <th>Apagar</th>
-              </tr>
-            </thead>
-            <tbody >
-            </tbody>
-          </table>
-        </div>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/listar.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <title>Lista</title>
+</head>
+
+<body onload="carregarLista()">
+  <div class="container" style="width: 1050px;">
+    <div>
+      <tr>
+        <td>
+          <a href="index.html">
+            <img class="icone" src="icones/helpdesk.png">
+          </a>
+        </td>
+        <td>
+          <h2>Lista de agendamentos</h2>
+        </td>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nome Solicitante</th>
+              <th>Ramal</th>
+              <th>Local</th>
+              <th>Data Inicial</th>
+              <th>Hora Inicial</th>
+              <th>Data Final</th>
+              <th>Hora Final</th>
+              <th>Descrição</th>
+              <th>Precisa Projetor S/N</th>
+              <th>Editar</th>
+              <th>Apagar</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

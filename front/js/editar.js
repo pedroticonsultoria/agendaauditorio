@@ -62,7 +62,6 @@ function salvarAlteracoes(){
     const horaInicial = document.getElementById("horaInicial");
     const horaFinal = document.getElementById("horaFinal");
     const descricao = document.getElementById("descricao");
-    const equipamento = document.getElementById("projetor");
 
     
 
