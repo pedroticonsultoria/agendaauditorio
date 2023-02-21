@@ -30,15 +30,14 @@ function buscarSolicitante() {
             throw new Error('Something went wrong');
         })
             .then((data) => {
+                
+                console.log('Recebido os seguintes dados do back:');
+                console.log(data);
                 atribuirCampos(data);
             })
             .catch((error) => {
                 console.log(error)
                 alert('Usuário não encontrado!');
-                document.getElementById('nome').value = '';
-                document.getElementById('departamento').value = '';
-
-                console.log(data);
             });
     } 
 }
@@ -79,8 +78,11 @@ function addToTable() {
     if (horaInicial.value == "") { document.getElementById("horaInicial").focus(); return alert('Informar a Hora Inicial!'); }
     if (horaFinal.value == "") { document.getElementById("horaFinal").focus(); return alert('Informar a Hora Final!'); }
     if (!document.getElementById("projetor").checked && !document.getElementById("nenhum").checked) {
-         return alert('Selecionar a opção se precisa de projetor!'); 
-        }
+        return alert('Selecionar a opção se precisa de projetor!');
+    }
+    if (document.getElementById("projetor").checked && document.getElementById("nenhum").checked) {
+        return alert('Selecionar somente uma opção do projetor!');
+    }
 
 
 
@@ -101,8 +103,7 @@ function addToTable() {
     }
 
     //Envio de post com os dados para o endpoint de agenda.
-    console.log('Enviando ao back o seguinte Json:')
-    console.log(_data)
+    console.log('Enviando ao Back o seguinte Json:')
     fetch('http://localhost:8080/agenda', {
         method: "POST",
         body: JSON.stringify(_data),

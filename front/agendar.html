@@ -32,95 +32,95 @@
     <fieldset>
       <legend> Informações de solicitação </legend>
       <table class="formulario">
-      <form id="formGeral">  
+        <form id="formGeral">
 
-        <tr>
-          <td class="titulo-cpf"><label for="cpf">*CPF:</label></td>
-          <td class="input">
-            <input required class="cpf" type="text" id="cpf" name="cpf" maxlength="11" minlength="11">
-            <button type="submit" onclick="buscarSolicitante()">Pesquisar</button>
-          </td>
-        </tr>
+          <tr>
+            <td class="titulo-cpf"><label for="cpf">*CPF:</label></td>
+            <td class="input">
+              <input required class="cpf" type="text" id="cpf" name="cpf" maxlength="11" minlength="11">
+              <button type="submit" onclick="buscarSolicitante()">Pesquisar</button>
+            </td>
+          </tr>
 
-        <tr>
-          <td><label for="nome">*Solicitante:</label></td>
-          <td>
-            <input required type="text" id="nome" name="nome" disabled="disabled">
-          </td>
-        </tr>
+          <tr>
+            <td><label for="nome">*Solicitante:</label></td>
+            <td>
+              <input required type="text" id="nome" name="nome" disabled="disabled">
+            </td>
+          </tr>
 
-        <tr>
-          <td><label for="departamento">*Departamento:</label>
-          </td>
-          <td>
-            <input required type="text" id="departamento" name="departamento" disabled="disabled">
-          </td>
-        </tr>
-
-
-        <tr>
-          <td><label  for="ramal">*Ramal:</label>
-          </td>
-          <td>
-            <input required  class="ramal" type="number" id="ramal" name="ramal">
-          </td>
-        </tr>
-
-        <tr>
-          <td><label>*Local:</label></td>
-          <td>
-            <select required name="local" id="local">
-              <option value=""></option>
-              <option value="Sala de Treinamentos">Sala de Treinamentos</option>
-              <option value="Auditório">Auditório</option>
-              <option value="Sala de exposição">Sala de exposição</option>
-            </select>
-          </td>
-        </tr>
-
-        <tr>
-          <td><label for="data">*Data:</label>
-          </td>
-          <td>
-            <input required class="data" type="date" id="dataInicial" name="dataInicial">
-            até
-            <input required class="data" type="date" id="dataFinal" name="dataFinal">
-          </td>
-        </tr>
+          <tr>
+            <td><label for="departamento">*Departamento:</label>
+            </td>
+            <td>
+              <input required type="text" id="departamento" name="departamento" disabled="disabled">
+            </td>
+          </tr>
 
 
+          <tr>
+            <td><label for="ramal">*Ramal:</label>
+            </td>
+            <td>
+              <input required class="ramal" type="number" id="ramal" name="ramal">
+            </td>
+          </tr>
 
-        <tr>
-          <td><label for="hoa">*Período:</label>
-          </td>
-          <td>
-            <input required class="time" type="time" id="horaInicial" name="horaInicial" min="09:00" max="18:00">
-            até
-            <input required class="time" type="time" id="horaFinal" name="horaFinal" min="09:00" max="18:00">
-          </td>
-        </tr>
+          <tr>
+            <td><label>*Local:</label></td>
+            <td>
+              <select required name="local" id="local">
+                <option value=""></option>
+                <option value="Sala de Treinamentos">Sala de Treinamentos</option>
+                <option value="Auditório">Auditório</option>
+                <option value="Sala de exposição">Sala de exposição</option>
+              </select>
+            </td>
+          </tr>
 
-        <tr>
-          <td><label for="descricao">Descrição:</label>
-          </td>
-          <td>
-            <textarea id="descricao" id="msg"></textarea>
-          </td>
-        </tr>
+          <tr>
+            <td><label for="data">*Data:</label>
+            </td>
+            <td>
+              <input required class="data" type="date" id="dataInicial" name="dataInicial">
+              até
+              <input required class="data" type="date" id="dataFinal" name="dataFinal">
+            </td>
+          </tr>
 
-        <tr>
-          <td><label for="Equipamentos">*Equipamentos:</label>
-          </td>
-          <td>
-            <div>
-              <input class="nenhum" type="checkbox" id="nenhum" name="nenhum" >Nenhum
-            </div>
-            <div>
-              <input required class="projetor" type="checkbox" id="projetor" name="projetor">Projetor Dell
-            </div>
-          </td>
-        </tr>
-      </form>  
+
+
+          <tr>
+            <td><label for="hoa">*Período:</label>
+            </td>
+            <td>
+              <input required class="time" type="time" id="horaInicial" name="horaInicial" min="09:00" max="18:00">
+              até
+              <input required class="time" type="time" id="horaFinal" name="horaFinal" min="09:00" max="18:00">
+            </td>
+          </tr>
+
+          <tr>
+            <td><label for="descricao">Descrição:</label>
+            </td>
+            <td>
+              <textarea id="descricao" id="msg"></textarea>
+            </td>
+          </tr>
+
+          <tr>
+            <td><label for="Equipamentos">*Equipamentos:</label>
+            </td>
+            <td>
+              <div>
+                <input class="nenhum" type="checkbox" id="nenhum" name="nenhum">Nenhum
+              </div>
+              <div>
+                <input required class="projetor" type="checkbox" id="projetor" name="projetor">Projetor Dell
+              </div>
+            </td>
+          </tr>
+        </form>
       </table>
 
       <table>
